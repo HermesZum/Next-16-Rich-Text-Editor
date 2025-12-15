@@ -1,7 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
-import {NextFontWithVariable} from "next/dist/compiled/@next/font";
+import { NextFontWithVariable } from "next/dist/compiled/@next/font";
 import { Geist, Geist_Mono } from "next/font/google";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
 const geistSans: NextFontWithVariable = Geist({
@@ -16,7 +17,8 @@ const geistMono: NextFontWithVariable = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Next 16 Rich Text Editor",
-  description: "Next.js 16 modern WYSIWYG rich text editor based on TipTap and Shadcn UI.",
+  description:
+    "Next.js 16 modern WYSIWYG rich text editor based on TipTap and Shadcn UI.",
 };
 
 export default function RootLayout({
@@ -29,7 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <TooltipProvider>{children}</TooltipProvider>
       </body>
     </html>
   );
